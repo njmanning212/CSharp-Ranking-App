@@ -19,9 +19,7 @@ const RankItems = () => {
 
   return ( 
     <main>
-      <div>
-        <RankingGrid />
-      </div>
+        <RankingGrid items={items} imgArr={MovieImageArr}/>
       <div className="items-not-ranked">
         {
           (items.length > 0) ? items.map((item, index) => 
