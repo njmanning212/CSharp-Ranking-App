@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MovieImageArr from "./MovieImages";
 
 const RankItems = () => {
 
@@ -16,14 +17,14 @@ const RankItems = () => {
 
   return ( 
     <main>
-      {
-        (items != null) ? items.map((item, index) => 
-          <h3 key={index}>
-            {item.title}
-          </h3>
-        ) :
-        <h3>Loading ...</h3>
-      }
+      <div className="items-not-ranked">
+        {
+          (items.length > 0) ? items.map((item, index) => 
+            <img id={`item-${item.id}`} src={MovieImageArr.find(o => o.id === item.imageId)?.image} alt={`${item.title} poster`}/>
+          ) :
+          <h3>Loading ...</h3>
+        }
+      </div>
     </main>
   );
 }
