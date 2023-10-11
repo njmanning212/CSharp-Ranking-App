@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Net.Http.Headers;
-
 namespace RankingApp.Models;
 
 public class ItemModel
