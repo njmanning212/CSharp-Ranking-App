@@ -1,4 +1,11 @@
 /* Provide sufficient contrast against white background */
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 a {
   color: #0366d6;
 }
@@ -23,13 +30,13 @@ code {
   margin-bottom: 15px;
 }
 
-.unranked-cell {
+.unranked-cell, .rank-cell {
   width: 80px;
   text-align: center;
   margin-left: 3px;
 }
 
-.unranked-cell img {
+.unranked-cell img, .rank-cell img {
   width: 100%;
   height: 100%;
 }
