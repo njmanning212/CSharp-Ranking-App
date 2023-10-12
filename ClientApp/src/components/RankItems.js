@@ -5,7 +5,13 @@ import RankingGrid from "./RankingGrid";
 import ItemCollection from "./ItemCollection";
 
 const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
+  
+  const [reload, setReload] = useState(false)
 
+  function Reload() {
+    setReload(true)
+  }
+  
   function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
@@ -36,7 +42,11 @@ const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
       setItems(data)
     }
     if (items === null) fetchData()
-  },[dataType, setItems, items])
+    if (reload) {
+      setReload(false)
+      fetchData()
+    }
+  },[dataType, setItems, items, reload])
 
   useEffect(() => {
     if (items !== null){
@@ -50,7 +60,7 @@ const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
     <main>
         <RankingGrid items={items} imgArr={imgArr} drag={drag} allowDrop={allowDrop} drop={drop}/>
         <ItemCollection items={items} drag={drag} imgArr={imgArr}/>
-
+        <button onClick={() => Reload()} style={{"marginTop":"10px"}}>Reload</button>
     </main>
     : <main>Loading ...</main>
   );
