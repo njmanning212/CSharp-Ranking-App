@@ -35,8 +35,8 @@ const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
       const data = await response.json()
       setItems(data)
     }
-    fetchData()
-  },[dataType, setItems])
+    if (items === null) fetchData()
+  },[dataType, setItems, items])
 
   useEffect(() => {
     if (items !== null){
