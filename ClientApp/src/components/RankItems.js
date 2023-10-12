@@ -11,7 +11,7 @@ const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
   function Reload() {
     setReload(true)
   }
-  
+
   function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
@@ -60,7 +60,9 @@ const RankItems = ({items, setItems, dataType, imgArr, localStorageKey}) => {
     <main>
         <RankingGrid items={items} imgArr={imgArr} drag={drag} allowDrop={allowDrop} drop={drop}/>
         <ItemCollection items={items} drag={drag} imgArr={imgArr}/>
-        <button onClick={() => Reload()} style={{"marginTop":"10px"}}>Reload</button>
+        <button onClick={() => Reload()} style={{"marginTop":"10px"}}
+          className="button-36"
+        >Reload</button>
     </main>
     : <main>Loading ...</main>
   );
